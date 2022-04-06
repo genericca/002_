@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.open-aside {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgb(37, 18, 100, .5);
+    border-radius: 50%;
+    background-image: url("images/menu.png");
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+
+.open-aside:hover {
+    filter: saturate(300%)
+}
+
+.open-aside:active {
+    transform: scale(.98);
+}
+
+aside {
+    width: 400px;
+    background: rgb(233, 235, 180);
+    height: 100vh;
+    transform: translateX(-400px);
+    transition: transform .5s;
+}
+
+.title {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title h2 {
+    font-family: "Cutive Mono";
+    font-size: 2.5rem;
+    color: yellow;
+    text-shadow: 1px 1px 3px rgb(220, 58, 169);
+}
+
+.close-aside {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    background-image: url("images/close.png");
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    filter: hue-rotate(180deg);
+    animation: counterclockwise .4s linear;
+    transition: filter .4s;
+}
+
+@keyframes clockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes counterclockwise {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.close-aside:hover {
+    transform: rotateX(180deg);
+    animation: clockwise .4s linear;
+    filter:invert(50%);
+}
+
+.papes ul {
+    list-style: none;
+}
+
+.papes button {
+    width: 100%;
+    padding: 20px;
+    font-family: Helvetica;
+    font-size: 2rem;
+    text-align: start;
+    color: rgb(116, 107, 107);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: padding-left .5s, background-color .5s, color .5s;
+}
+
+.papes button:hover {
+    padding-left: 25px;
+    background-color: rgb(225, 169, 137);
+    color: rgb(244, 245, 191);
+}
+
+@media screen and (max-width: 480px) {
+    .open-aside {
+        width: 30px;
+        height: 30px;
+        top: 10px;
+        right: 10px;
+    }
+
+    aside {
+        width: 200px;
+    }
+
+    .close-aside {
+        width: 10px;
+        height: 10px;
+    }
+
+    .title h2 {
+        font-size: 2rem;
+    }
+
+    .papes button {
+        font-size: 1.5rem;
+    }
+}
